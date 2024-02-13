@@ -13,7 +13,7 @@ LINK = ${CXX}
 LDFLAGS = 
 EXE = 02_simple_reduce.cuda
 KOKKOS_DEVICES = "Cuda,OpenMP"
-KOKKOS_ARCH = "SNB,Kepler35"
+KOKKOS_ARCH = "SNB,Ampere80"
 else
 CXX = g++
 CXXFLAGS = -O3
