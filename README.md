@@ -1,50 +1,41 @@
-![Kokkos](https://avatars2.githubusercontent.com/u/10199860?s=200&v=4)
+# CSC5760 and CSC4760 Parallel Programming Homework
 
-# Kokkos: Core Libraries
+## Notes on running files on TN Tech Cluster
+Sign in to login shell with your user account. 
 
-Kokkos Core implements a programming model in C++ for writing performance portable
-applications targeting all major HPC platforms. For that purpose it provides
-abstractions for both parallel execution of code and data management.
-Kokkos is designed to target complex node architectures with N-level memory
-hierarchies and multiple types of execution resources. It currently can use
-CUDA, HIP, SYCL, HPX, OpenMP and C++ threads as backend programming models with several other
-backends in development.
+### Accessing gpu nodes
+Find what accounts you can access, run 
+`sacctmgr show assoc format=account%20`
+This should show that you can access an account named `csc4760-001-2024s`
+To enter a node with GPU access, 
+`hpcshell --cpus-per-task=2 --gres=gpu --account=csc4760-001-2024s`
 
-**Kokkos Core is part of the Kokkos C++ Performance Portability Programming EcoSystem.**
+### Running Kokkos programs with Cuda
+Use the spack package manager to load the desired combination of Kokkos, gcc, and Cuda
+`spack load kokkos%gcc@12 +cuda`
 
-For the complete documentation, click below:
+Enter the desired example or problem folder and run: 
+`KOKKOS_DEVICES=Cuda    make`
+This sets up all of the sources files.
 
-# [kokkos.github.io/kokkos-core-wiki](https://kokkos.github.io/kokkos-core-wiki)
+To run the final executables:
+`LD_LIBRARY_PATH=$(spack location -i cuda@12)/lib64 ./program_name.cuda`
 
-# Learning about Kokkos
+### Running Kokkos without Cuda
+To use without Cuda, you will want to load the Cuda-less Kokkos packages
+`spack load kokkos%gcc@12 ~cuda`
 
-To start learning about Kokkos:
+Run these inside the desired example or problem
+`KOKKOS_DEVICES=OpenMP    make`
+`./program_name.host`
 
-- [Kokkos Lectures](https://kokkos.github.io/kokkos-core-wiki/videolectures.html): they contain a mix of lecture videos and hands-on exercises covering all the important Kokkos Ecosystem capabilities.
+## Question 1
 
-- [Programming guide](https://kokkos.github.io/kokkos-core-wiki/programmingguide.html): contains in "narrative" form a technical description of the programming model, machine model, and the main building blocks like the Views and parallel dispatch.
+## Question 2
 
-- [API reference](https://kokkos.github.io/kokkos-core-wiki/): organized by category, i.e., [core](https://kokkos.github.io/kokkos-core-wiki/API/core-index.html), [algorithms](https://kokkos.github.io/kokkos-core-wiki/API/algorithms-index.html) and [containers](https://kokkos.github.io/kokkos-core-wiki/API/containers-index.html) or, if you prefer, in [alphabetical order](https://kokkos.github.io/kokkos-core-wiki/API/alphabetical.html).
+## Question 3
 
-- [Use cases and Examples](https://kokkos.github.io/kokkos-core-wiki/usecases.html): a series of examples ranging from how to use Kokkos with MPI to Fortran interoperability.
-
-For questions find us on Slack: https://kokkosteam.slack.com or open a github issue.
-
-For non-public questions send an email to: *crtrott(at)sandia.gov*
-
-# Contributing to Kokkos
-
-Please see [this page](https://kokkos.github.io/kokkos-core-wiki/contributing.html) for details on how to contribute.
-
-# Requirements, Building and Installing
-
-All requirements including minimum and primary tested compiler versions can be found [here](https://kokkos.github.io/kokkos-core-wiki/requirements.html).
-
-Building and installation instructions are described [here](https://kokkos.github.io/kokkos-core-wiki/building.html).
-
-# Citing Kokkos
-
-Please see the [following page](https://kokkos.github.io/kokkos-core-wiki/citation.html).
+## Question 4 (Only required for Graduate Student Level 5760)
 
 # License
 
@@ -55,3 +46,5 @@ the U.S. Government retains certain rights in this software.
 
 The full license statement used in all headers is available [here](https://kokkos.github.io/kokkos-core-wiki/license.html) or
 [here](https://github.com/kokkos/kokkos/blob/master/LICENSE).
+
+This notice shows that this is a derivative work (if extensively changed) of the Kokkos tutorials and Kokkos repository. 
