@@ -1,6 +1,6 @@
 KOKKOS_PATH = ../../..
 KOKKOS_SRC_PATH = ${KOKKOS_PATH}
-SRC = $(wildcard ${KOKKOS_SRC_PATH}/example/homework/01_init/*.cpp)
+SRC = $(wildcard ${KOKKOS_SRC_PATH}/example/homework/02/*.cpp)
 vpath %.cpp $(sort $(dir $(SRC)))
 
 default: build
@@ -11,7 +11,7 @@ CXX = ${KOKKOS_PATH}/bin/nvcc_wrapper
 CXXFLAGS = -O3
 LINK = ${CXX}
 LDFLAGS = 
-EXE = init.cuda
+EXE = prog.cuda
 KOKKOS_DEVICES = "Cuda,OpenMP"
 KOKKOS_ARCH = "SNB,Ampere80""
 else
@@ -19,7 +19,7 @@ CXX = g++
 CXXFLAGS = -O3
 LINK = ${CXX}
 LDFLAGS =  
-EXE = init.host
+EXE = prog.host
 KOKKOS_DEVICES = "OpenMP"
 KOKKOS_ARCH = "SNB"
 endif
