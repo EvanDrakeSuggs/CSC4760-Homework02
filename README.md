@@ -1,4 +1,4 @@
-# CSC5760 and CSC4760 Parallel Programming Homework
+# CSC5760 and CSC4760 Parallel Programming Homework 02
 
 ## Notes on running files on TN Tech Cluster
 Sign in to login shell with your user account. 
@@ -28,15 +28,6 @@ To use without Cuda, you will want to load the Cuda-less Kokkos packages
 Run these inside the desired example or problem
 `KOKKOS_DEVICES=OpenMP    make`
 `./program_name.host`
-
-## Question 1
-
-## Question 2
-
-## Question 3
-
-## Question 4 (Only required for Graduate Student Level 5760)
-
 # License
 
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
