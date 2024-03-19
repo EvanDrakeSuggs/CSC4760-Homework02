@@ -15,7 +15,7 @@ EXE = prog.cuda
 KOKKOS_DEVICES = "Cuda,OpenMP"
 KOKKOS_ARCH = "SNB,Ampere80""
 else
-CXX = g++
+CXX = mpicxx
 CXXFLAGS = -O3
 LINK = ${CXX}
 LDFLAGS =  
