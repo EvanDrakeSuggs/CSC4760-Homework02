@@ -1,6 +1,6 @@
 KOKKOS_PATH = ../../..
 KOKKOS_SRC_PATH = ${KOKKOS_PATH}
-SRC = $(wildcard ${KOKKOS_SRC_PATH}/example/homework/07/*.cpp)
+SRC = $(wildcard ${KOKKOS_SRC_PATH}/example/homework/08/*.cpp)
 vpath %.cpp $(sort $(dir $(SRC)))
 
 default: build
@@ -15,7 +15,7 @@ EXE = prog.cuda
 KOKKOS_DEVICES = "Cuda,OpenMP"
 KOKKOS_ARCH = "SNB,Ampere80""
 else
-CXX = g++
+CXX = mpicxx
 CXXFLAGS = -O3
 LINK = ${CXX}
 LDFLAGS =  

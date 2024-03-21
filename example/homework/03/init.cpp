@@ -1,15 +1,18 @@
 #include <Kokkos_Core.hpp>
 #include <cstdio>
 
-// Declare a 5 ∗ 7 ∗ 12 ∗ n View
-
 int main(int argc, char* argv[]) {
   Kokkos::initialize(argc, argv);
   {
-  // Make View
+  // Make View of length n > 1000 and add values
   
-  // print name
+  // create two additional views of same size and datatype
+ 
+  // deep_copy
   
+  // user copy
+
+  // Output times 
   }
   Kokkos::finalize();
 }
