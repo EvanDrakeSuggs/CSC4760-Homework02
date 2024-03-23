@@ -1,0 +1,5 @@
+Problem 1(10pts/8pts):
+Write an MPI program that passes a message of one integer around in a logical ring of processes with
+MPI_COMM_WORLD. The integer should start at 0 in process 0 and be incremented each time it passes around
+the ring, and you should be able to have the message go around the ring N times, where N is specified at
+compile time.

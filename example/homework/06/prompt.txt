@@ -1,0 +1,6 @@
+Problem 6 (10pts/8pts):
+Write a program that creates a View, then using MPI ranks, create a send side and a recv side. Initialize
+the View with values on the send side only Pass the View to the recv side using information from the
+MPI+Kokkos lecture Print out the View on recv side.
+Run with ”OMP PROC BIND=spread mpirun –oversubscribe -n 2 ./prog.host” after doing Kokkos make.
+Note: CSC4760 students (aka undergrads) may do these problems for extra credit

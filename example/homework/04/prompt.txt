@@ -1,0 +1,5 @@
+Problem 4 (15pts/12pts):
+1. Demonstrate the use of MPI Bcast and MPI Reduce to achieve the same result as MPI Allreduce.
+2. Demonstrate the use of MPI Gather and MPI Bcast to achieve the same result as MPI Allgather.
+3. Demonstrate the use of MPI Alltoall to send a personalized communication between each process in
+MPI COMM WORLD.

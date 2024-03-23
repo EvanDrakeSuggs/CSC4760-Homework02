@@ -1,0 +1,34 @@
+Problem 2 (50pts/40pts):
+Your goal is to develop a two-dimensional decomposition of the Game of Life (a cellular automaton created
+by Prof. John Conway in 1970) using MPI for inter-process communication (and sequential processing in
+each process for the algorithm):
+• a 2D decomposition of an NxN world of cells (let space be a dead space and ’*’ is a live space).
+Represent cells as ’char’.
+• Divide the world as evenly you can among a logical array of P × Q processes.
+• For each cell on iteration i, it is alive in iteration i + 1 if it is alive in iteration i, and has two or three
+live neighbors.
+• For each cell on iteration i, if it is dead on iteration i, then it is alive i + 1 if it has three live neighbors.
+• The boundaries of your world wrap, forming a torus. That is, if you go off the left side of the domain,
+you come back on the right (and vice versa). If you go off the top, you come back on the bottom (and
+vice versa).
+
+Note: You will need two copies of your domain, one for even iterations and one for odd.
+
+The way Life works, each cell has eight neighbors. These eight neighbors define the so-called stencil.
+This stencil induces communication between your processes. Around your local domain, you will need the
+“halo” (or ghost cells) that come from the eight neighbors. To a process (p, q), there are North, South, East,
+West, NW, NE, SW, SE neighbor communications.
+
+Test this with at last eight MPI processes and at least with N = 512. Make sure it works correctly even
+when P = 1 and/or Q = 1 (which means there is no communication in one dimension or the other, just local
+wrapping of boundaries).
+
+Notes:
+• We will go over lots of the details in class of how to manage the local data structures and halos to help.
+• Compute your local updates sequentially for this problem set. We will explore parallelizing on-node in
+the next problem set (using Kokkos).
+• There are many famous patterns: blinkers, gliders, glider guns (they generate gliders), etc. The
+emerging properties of the Game of Life are amazing; for instance, it has been proven to be a Turing
+complete system, meaning any computer program can be coded in a sufficiently large Life world.
+
+Reference: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life

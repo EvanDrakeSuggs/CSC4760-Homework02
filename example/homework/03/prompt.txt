@@ -1,0 +1,10 @@
+Problem 3 (20pts/16pts):
+Write a Kokkos program that creates and initializes a single dimensional View of non-trivial length (n >=
+1000) with non-trival values (anything other default values, for example, V iew(i) = i ∗ i).
+Then, create two additional Views of the same size and datatype.
+2
+Copy the first View into one of these using the Kokkos deep copy function. Copy another using the
+Kokkos parallel for. Time each of these copy operations separately using Kokkos Timer and output the
+results.
+If different, consider how each of these are affected by the choice of backend. If roughly the same, what
+does this mean for the backend.

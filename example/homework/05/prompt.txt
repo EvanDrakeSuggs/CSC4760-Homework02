@@ -1,0 +1,7 @@
+Problem 5 (10pts/8pts):
+Write a program that uses MPI Comm split to create two sub-communicators for each process in the world
+of processes given initially in MPI COMM WORLD. The first split should put processes together that have the
+same color when their ranks are divided by an integer Q (ranks in MPI COMM WORLD). The second split should
+put processes together that have the same color when your compute the color as their rank mod Q. In this
+situation, your world size must be at exactly P × Q, P, Q ≥ 1. You get to pick P , Q but P × Q has to be
+the size of the process group of MPI COMM WORLD.
